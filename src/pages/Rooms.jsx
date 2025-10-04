@@ -67,7 +67,6 @@ export default function Rooms() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Rooms</h1>
@@ -81,7 +80,6 @@ export default function Rooms() {
           </Button>
         </div>
 
-        {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card className="bg-gradient-card">
             <CardContent className="p-4">
@@ -131,7 +129,6 @@ export default function Rooms() {
           </Card>
         </div>
 
-        {/* Filters */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="text-lg">Filters & Search</CardTitle>
@@ -185,14 +182,13 @@ export default function Rooms() {
           </CardContent>
         </Card>
 
-        {/* Rooms Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mockRooms.map((room) => (
             <Card key={room.id} className="bg-gradient-card hover:shadow-md transition-shadow">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">Room {room.room_number}</CardTitle>
-                  <div className={`px-2 py-1 rounded-md text-xs font-medium ${statusColors[room.status as keyof typeof statusColors]}`}>
+                  <div className={`px-2 py-1 rounded-md text-xs font-medium ${statusColors[room.status]}`}>
                     {room.status.charAt(0).toUpperCase() + room.status.slice(1)}
                   </div>
                 </div>
@@ -205,14 +201,12 @@ export default function Rooms() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Room Image Placeholder */}
                 <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
                   <Camera className="w-8 h-8 text-muted-foreground" />
                 </div>
                 
                 <p className="text-sm text-muted-foreground">{room.description}</p>
                 
-                {/* Amenities */}
                 <div className="flex flex-wrap gap-1">
                   {room.amenities.slice(0, 3).map((amenity) => (
                     <Badge key={amenity} variant="secondary" className="text-xs">
@@ -226,7 +220,6 @@ export default function Rooms() {
                   )}
                 </div>
                 
-                {/* Rate */}
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-foreground">
                     ₱{room.rate.toLocaleString()}

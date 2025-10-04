@@ -27,7 +27,6 @@ export function AdminSidebar() {
 
   return (
     <>
-      {/* Mobile Overlay */}
       {!isCollapsed && (
         <div
           className="lg:hidden fixed inset-0 bg-black/50 z-40"
@@ -35,7 +34,6 @@ export function AdminSidebar() {
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`
           fixed lg:static inset-y-0 left-0 z-50 
@@ -44,7 +42,6 @@ export function AdminSidebar() {
           flex flex-col shadow-lg
         `}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-sidebar-border">
           {!isCollapsed && (
             <div className="flex items-center space-x-2">
@@ -67,7 +64,6 @@ export function AdminSidebar() {
           </Button>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 p-4 space-y-2">
           {sidebarItems.map((item) => (
             <NavLink
@@ -88,7 +84,6 @@ export function AdminSidebar() {
           ))}
         </nav>
 
-        {/* Footer */}
         <div className="p-4 border-t border-sidebar-border">
           {!isCollapsed && (
             <div className="flex items-center space-x-2 text-sm text-sidebar-foreground/60">
@@ -104,7 +99,6 @@ export function AdminSidebar() {
         </div>
       </aside>
 
-      {/* Mobile Toggle Button */}
       <Button
         variant="outline"
         size="sm"

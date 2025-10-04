@@ -37,7 +37,6 @@ const mockReservations = [
     total_price: 28000,
     payment_status: "partial",
   },
-  // Add more mock data as needed
 ];
 
 const statusColors = {
@@ -52,7 +51,6 @@ export default function Reservations() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Reservations</h1>
@@ -66,7 +64,6 @@ export default function Reservations() {
           </Button>
         </div>
 
-        {/* Filters */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="text-lg">Filters & Search</CardTitle>
@@ -112,7 +109,6 @@ export default function Reservations() {
           </CardContent>
         </Card>
 
-        {/* Reservations Table */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
@@ -156,7 +152,7 @@ export default function Reservations() {
                         </div>
                       </td>
                       <td className="py-4 px-4">
-                        <div className={`inline-flex px-2 py-1 rounded-md text-xs font-medium ${statusColors[reservation.status as keyof typeof statusColors]}`}>
+                        <div className={`inline-flex px-2 py-1 rounded-md text-xs font-medium ${statusColors[reservation.status]}`}>
                           {reservation.status.charAt(0).toUpperCase() + reservation.status.slice(1).replace('_', ' ')}
                         </div>
                       </td>

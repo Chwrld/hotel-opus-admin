@@ -68,7 +68,6 @@ export default function Users() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Users</h1>
@@ -82,7 +81,6 @@ export default function Users() {
           </Button>
         </div>
 
-        {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Card className="bg-gradient-card">
             <CardContent className="p-4">
@@ -130,7 +128,6 @@ export default function Users() {
           </Card>
         </div>
 
-        {/* Filters */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="text-lg">Filters & Search</CardTitle>
@@ -173,7 +170,6 @@ export default function Users() {
           </CardContent>
         </Card>
 
-        {/* Users Table */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
@@ -196,7 +192,7 @@ export default function Users() {
                 </thead>
                 <tbody>
                   {mockUsers.map((user) => {
-                    const RoleIcon = roleIcons[user.role as keyof typeof roleIcons];
+                    const RoleIcon = roleIcons[user.role];
                     return (
                       <tr key={user.id} className="border-b border-border/50 hover:bg-muted/30">
                         <td className="py-4 px-4">
@@ -227,7 +223,7 @@ export default function Users() {
                         <td className="py-4 px-4">
                           <div className="flex items-center space-x-2">
                             <RoleIcon className="w-4 h-4" />
-                            <div className={`inline-flex px-2 py-1 rounded-md text-xs font-medium ${roleColors[user.role as keyof typeof roleColors]}`}>
+                            <div className={`inline-flex px-2 py-1 rounded-md text-xs font-medium ${roleColors[user.role]}`}>
                               {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                             </div>
                           </div>

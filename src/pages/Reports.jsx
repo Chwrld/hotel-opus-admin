@@ -59,7 +59,6 @@ export default function Reports() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Reports</h1>
@@ -86,7 +85,6 @@ export default function Reports() {
           </div>
         </div>
 
-        {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {mockReportsData.map((report, index) => (
             <Card key={index} className="bg-gradient-card hover:shadow-md transition-shadow">
@@ -107,7 +105,6 @@ export default function Reports() {
           ))}
         </div>
 
-        {/* Report Generation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card className="bg-gradient-card">
             <CardHeader>
@@ -226,7 +223,6 @@ export default function Reports() {
           </Card>
         </div>
 
-        {/* Recent Reports */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">

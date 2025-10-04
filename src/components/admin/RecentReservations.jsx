@@ -3,44 +3,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-interface Reservation {
-  id: number;
-  guest_name: string;
-  room_number: string;
-  status: 'pending' | 'confirmed' | 'checked_in' | 'checked_out' | 'cancelled';
-  check_in: string;
-  check_out: string;
-  created_at: string;
-  total_price: number;
-}
-
-interface RecentReservationsProps {
-  reservations: Reservation[];
-  onViewDetails?: (id: number) => void;
-  isLoading?: boolean;
-}
-
 const statusConfig = {
-  pending: { label: "Pending", variant: "secondary" as const, color: "bg-warning/10 text-warning" },
-  confirmed: { label: "Confirmed", variant: "default" as const, color: "bg-success/10 text-success" },
-  checked_in: { label: "Checked In", variant: "default" as const, color: "bg-primary/10 text-primary" },
-  checked_out: { label: "Checked Out", variant: "outline" as const, color: "bg-muted text-muted-foreground" },
-  cancelled: { label: "Cancelled", variant: "destructive" as const, color: "bg-destructive/10 text-destructive" },
+  pending: { label: "Pending", variant: "secondary", color: "bg-warning/10 text-warning" },
+  confirmed: { label: "Confirmed", variant: "default", color: "bg-success/10 text-success" },
+  checked_in: { label: "Checked In", variant: "default", color: "bg-primary/10 text-primary" },
+  checked_out: { label: "Checked Out", variant: "outline", color: "bg-muted text-muted-foreground" },
+  cancelled: { label: "Cancelled", variant: "destructive", color: "bg-destructive/10 text-destructive" },
 };
 
 export function RecentReservations({ 
   reservations, 
   onViewDetails, 
   isLoading = false 
-}: RecentReservationsProps) {
-  const formatDate = (dateString: string) => {
+}) {
+  const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
     });
   };
 
-  const formatCurrency = (amount: number) => {
+  const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-PH", {
       style: "currency",
       currency: "PHP",

@@ -18,7 +18,6 @@ export default function Settings() {
   return (
     <AdminLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Settings</h1>
@@ -33,7 +32,6 @@ export default function Settings() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Hotel Information */}
           <Card className="bg-gradient-card">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -83,7 +81,6 @@ export default function Settings() {
             </CardContent>
           </Card>
 
-          {/* Notification Settings */}
           <Card className="bg-gradient-card">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -126,7 +123,6 @@ export default function Settings() {
             </CardContent>
           </Card>
 
-          {/* Security Settings */}
           <Card className="bg-gradient-card">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -157,7 +153,7 @@ export default function Settings() {
                 </label>
                 <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
                   <option value="basic">Basic (8 characters)</option>
-                  <option value="standard" selected>Standard (8+ chars, mixed case)</option>
+                  <option value="standard">Standard (8+ chars, mixed case)</option>
                   <option value="strict">Strict (12+ chars, symbols required)</option>
                 </select>
               </div>
@@ -168,7 +164,6 @@ export default function Settings() {
             </CardContent>
           </Card>
 
-          {/* System Preferences */}
           <Card className="bg-gradient-card">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -182,7 +177,7 @@ export default function Settings() {
                   Default Currency
                 </label>
                 <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
-                  <option value="PHP" selected>Philippine Peso (₱)</option>
+                  <option value="PHP">Philippine Peso (₱)</option>
                   <option value="USD">US Dollar ($)</option>
                   <option value="EUR">Euro (€)</option>
                 </select>
@@ -193,7 +188,7 @@ export default function Settings() {
                   Time Zone
                 </label>
                 <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
-                  <option value="Asia/Manila" selected>Asia/Manila (GMT+8)</option>
+                  <option value="Asia/Manila">Asia/Manila (GMT+8)</option>
                   <option value="UTC">UTC (GMT+0)</option>
                 </select>
               </div>
@@ -204,7 +199,7 @@ export default function Settings() {
                 </label>
                 <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
                   <option value="MM/DD/YYYY">MM/DD/YYYY</option>
-                  <option value="DD/MM/YYYY" selected>DD/MM/YYYY</option>
+                  <option value="DD/MM/YYYY">DD/MM/YYYY</option>
                   <option value="YYYY-MM-DD">YYYY-MM-DD</option>
                 </select>
               </div>
@@ -220,7 +215,6 @@ export default function Settings() {
           </Card>
         </div>
 
-        {/* Email Configuration */}
         <Card className="bg-gradient-card">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
@@ -250,7 +244,7 @@ export default function Settings() {
                       Encryption
                     </label>
                     <select className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground">
-                      <option value="tls" selected>TLS</option>
+                      <option value="tls">TLS</option>
                       <option value="ssl">SSL</option>
                       <option value="none">None</option>
                     </select>

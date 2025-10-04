@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { KPICard } from "@/components/admin/KPICard";
 import { SalesChart } from "@/components/admin/SalesChart";
@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-// Mock data - replace with actual API calls
 const mockKPIData = {
   totalRevenue: 125000,
   todaysReservations: 12,
@@ -45,7 +44,7 @@ const mockReservations = [
     id: 1,
     guest_name: "Jane Doe",
     room_number: "101",
-    status: "checked_in" as const,
+    status: "checked_in",
     check_in: "2024-01-15",
     check_out: "2024-01-18",
     created_at: "2024-01-14",
@@ -55,7 +54,7 @@ const mockReservations = [
     id: 2,
     guest_name: "John Smith",
     room_number: "205",
-    status: "confirmed" as const,
+    status: "confirmed",
     check_in: "2024-01-16",
     check_out: "2024-01-20",
     created_at: "2024-01-13",
@@ -65,7 +64,7 @@ const mockReservations = [
     id: 3,
     guest_name: "Maria Garcia",
     room_number: "312",
-    status: "pending" as const,
+    status: "pending",
     check_in: "2024-01-17",
     check_out: "2024-01-19",
     created_at: "2024-01-15",
@@ -75,7 +74,7 @@ const mockReservations = [
     id: 4,
     guest_name: "Robert Johnson",
     room_number: "408",
-    status: "checked_out" as const,
+    status: "checked_out",
     check_in: "2024-01-10",
     check_out: "2024-01-14",
     created_at: "2024-01-08",
@@ -85,7 +84,7 @@ const mockReservations = [
     id: 5,
     guest_name: "Lisa Chen",
     room_number: "156",
-    status: "confirmed" as const,
+    status: "confirmed",
     check_in: "2024-01-18",
     check_out: "2024-01-22",
     created_at: "2024-01-15",
@@ -102,10 +101,8 @@ export default function Dashboard() {
   const handleRefreshData = async () => {
     setIsLoading(true);
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Mock updated data
       const updatedData = {
         ...mockChartData,
         datasets: mockChartData.datasets.map(dataset => ({
@@ -130,27 +127,24 @@ export default function Dashboard() {
     }
   };
 
-  const handleTimeRangeChange = (value: string) => {
+  const handleTimeRangeChange = (value) => {
     setTimeRange(value);
-    // Here you would typically fetch new data based on the time range
     toast({
       title: "Time Range Updated",
       description: `Showing data for the last ${value} days.`,
     });
   };
 
-  const handleViewReservationDetails = (id: number) => {
+  const handleViewReservationDetails = (id) => {
     toast({
       title: "View Reservation",
       description: `Opening details for reservation #${id}`,
     });
-    // Navigate to reservation details
   };
 
   return (
     <AdminLayout>
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
@@ -180,7 +174,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <KPICard
             title="Total Revenue"
@@ -208,7 +201,6 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Charts Section */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           <div className="xl:col-span-2">
             <SalesChart

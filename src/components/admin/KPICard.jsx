@@ -1,18 +1,6 @@
-import { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-interface KPICardProps {
-  title: string;
-  value: string | number;
-  icon: LucideIcon;
-  trend?: {
-    value: number;
-    isPositive: boolean;
-  };
-  className?: string;
-}
-
-export function KPICard({ title, value, icon: Icon, trend, className = "" }: KPICardProps) {
+export function KPICard({ title, value, icon: Icon, trend, className = "" }) {
   return (
     <Card className={`bg-gradient-card hover:shadow-md transition-shadow ${className}`}>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

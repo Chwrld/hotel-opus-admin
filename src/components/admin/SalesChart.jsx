@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,34 +25,20 @@ ChartJS.register(
   Filler
 );
 
-interface SalesChartProps {
-  data: {
-    labels: string[];
-    datasets: {
-      label: string;
-      data: number[];
-      borderColor: string;
-      backgroundColor: string;
-    }[];
-  };
-  onRefresh?: () => void;
-  isLoading?: boolean;
-}
-
-export function SalesChart({ data, onRefresh, isLoading = false }: SalesChartProps) {
+export function SalesChart({ data, onRefresh, isLoading = false }) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "top" as const,
+        position: "top",
         labels: {
           usePointStyle: true,
           padding: 20,
         },
       },
       tooltip: {
-        mode: "index" as const,
+        mode: "index",
         intersect: false,
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         titleColor: "#fff",
@@ -81,15 +66,15 @@ export function SalesChart({ data, onRefresh, isLoading = false }: SalesChartPro
           display: false,
         },
         ticks: {
-          callback: function(value: any) {
+          callback: function(value) {
             return "₱" + value.toLocaleString();
           },
         },
       },
     },
     interaction: {
-      mode: "nearest" as const,
-      axis: "x" as const,
+      mode: "nearest",
+      axis: "x",
       intersect: false,
     },
     elements: {

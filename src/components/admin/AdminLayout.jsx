@@ -1,11 +1,6 @@
-import { ReactNode } from "react";
 import { AdminSidebar } from "./AdminSidebar";
 
-interface AdminLayoutProps {
-  children: ReactNode;
-}
-
-export function AdminLayout({ children }: AdminLayoutProps) {
+export function AdminLayout({ children }) {
   return (
     <div className="min-h-screen bg-background flex">
       <AdminSidebar />
